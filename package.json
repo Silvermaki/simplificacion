@@ -161,10 +161,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/grigson/smartadmin-angular-2"
+    "url": "https://github.com/Silvermaki/simplificacion.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/grigson/smartadmin-angular-2/issues"
+    "url": ""
   },
   "engines": {
     "node": ">= 4.2.1",
