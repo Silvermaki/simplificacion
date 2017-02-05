@@ -5,7 +5,7 @@
   </div>
 
   <span id="extr-page-header-space">
-        <span class="hidden-mobile hiddex-xs">Already registered?</span> <a routerLink="/auth/login" class="btn btn-danger">Sign In</a> </span>
+        <span class="hidden-mobile hiddex-xs">¿Ya estás registrado?</span> <a routerLink="/auth/login" class="btn btn-primary">Conectarse</a> </span>
 
 </header>
 <div id="main" role="main" class="animated fadeInDown">
@@ -15,14 +15,14 @@
 
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
-        <h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+        <h1 class="login-header-big"><span class="custom-green">MiEmpresa</span><span class ="custom-blue">EnLínea</span></h1>
         <div class="hero">
 
           <div class="pull-left login-desc-box-l">
-            <h4 class="paragraph-header">It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!</h4>
+            <h4 class="paragraph-header">Este sitio te permite crear y administrar tu empresa en línea.</h4>
             <div class="login-app-icons">
-              <a routerLink="/dashboard/analytics" class="btn btn-danger btn-sm">Frontend Template</a>
-              <a routerLink="/smartadmin/app-layouts" class="btn btn-danger btn-sm">Find out more</a>
+              <a routerLink="/auth/login" class="btn btn-primary btn-sm">Conectarme</a>
+              <a href="https://honduras.eregulations.org/" class="btn btn-primary btn-sm">Ir al sitio de EmprendeGuía</a>
             </div>
           </div>
 
@@ -32,15 +32,17 @@
 
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+           <h5 class="about-heading">Acerca de MiEmpresaEnLínea</h5>
+
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+              A efecto de facilitar la formalización de las actividades mercantiles por parte de quienes las desempeñan y fomentar el desarrollo de la iniciativa empresarial, se implementó una Plataforma de Solicitudes que permite el registro, constitución y gestión de Sociedades Mercantiles.
             </p>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <h5 class="about-heading">Not just your average template!</h5>
+            <h5 class="about-heading">Contáctanos</h5>
+
             <p>
-              Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+              Contacto
             </p>
           </div>
         </div>
@@ -51,32 +53,32 @@
 
           <form id="smart-form-register" class="smart-form client-form">
             <header>
-              Registration is FREE*
+              Regístrate en MiEmpresaEnLínea
             </header>
 
             <fieldset>
               <section>
                 <label class="input"> <i class="icon-append fa fa-user"></i>
-                  <input type="text" name="username" placeholder="Username">
-                  <b class="tooltip tooltip-bottom-right">Needed to enter the website</b> </label>
+                  <input type="text" name="username" placeholder="Usuario">
+                  <b class="tooltip tooltip-bottom-right">Utilizado como tu nombre dentro del portal de solicitudes</b> </label>
               </section>
 
               <section>
                 <label class="input"> <i class="icon-append fa fa-envelope"></i>
-                  <input type="email" name="email" placeholder="Email address">
-                  <b class="tooltip tooltip-bottom-right">Needed to verify your account</b> </label>
+                  <input type="email" name="email" placeholder="Correo Electrónico">
+                  <b class="tooltip tooltip-bottom-right">Utilizado para conectarte y gestionar tu cuenta de usuario</b> </label>
               </section>
 
               <section>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <input type="password" name="password" placeholder="Password" id="password">
-                  <b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
+                  <input type="password" name="password" placeholder="Contraseña" id="password">
+                  <b class="tooltip tooltip-bottom-right">Tu contraseña debe contener al menos 8 caracteres</b> </label>
               </section>
 
               <section>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <input type="password" name="passwordConfirm" placeholder="Confirm password">
-                  <b class="tooltip tooltip-bottom-right">Don't forget your password</b> </label>
+                  <input type="password" name="passwordConfirm" placeholder="Confirmar Contraseña">
+                  <b class="tooltip tooltip-bottom-right">Volver a ingresar tu contraseña</b> </label>
               </section>
             </fieldset>
 
@@ -84,12 +86,12 @@
               <div class="row">
                 <section class="col col-6">
                   <label class="input">
-                    <input type="text" name="firstname" placeholder="First name">
+                    <input type="text" name="nombre" placeholder="Nombre">
                   </label>
                 </section>
                 <section class="col col-6">
                   <label class="input">
-                    <input type="text" name="lastname" placeholder="Last name">
+                    <input type="text" name="apellido" placeholder="Apellido">
                   </label>
                 </section>
               </div>
@@ -98,45 +100,35 @@
                 <section class="col col-6">
                   <label class="select">
                     <select name="gender">
-                      <option value="0" selected disabled>Gender</option>
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
-                      <option value="3">Prefer not to answer</option>
+                      <option value="0" selected disabled>Género</option>
+                      <option value="1">Masculino</option>
+                      <option value="2">Femenino</option>
                     </select> <i></i> </label>
-                </section>
-                <section class="col col-6">
-                  <label class="input"> <i class="icon-append fa fa-calendar"></i>
-                    <input type="text" name="request" placeholder="Request activation on" class="datepicker" data-dateformat="dd/mm/yy">
-                  </label>
                 </section>
               </div>
 
               <section>
                 <label class="checkbox">
-                  <input type="checkbox" name="subscription" id="subscription">
-                  <i></i>I want to receive news and special offers</label>
-                <label class="checkbox">
                   <input type="checkbox" name="terms" id="terms">
-                  <i></i>I agree with the <a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions </a></label>
+                  <i></i>Acepto los <a href="#" data-toggle="modal" data-target="#myModal">Términos y Condiciones</a> de MiEmpresaEnLínea.</label>
               </section>
             </fieldset>
             <footer>
               <button (click)="register($event)" class="btn btn-primary">
-                Register
+                Registrarse
               </button>
             </footer>
 
             <div class="message">
               <i class="fa fa-check"></i>
               <p>
-                Thank you for your registration!
+                Gracias por registrarte en MiEmpresaEnLínea. Ingresa a tu bandeja de entrada para verificar el correo electrónico proporcionado antes de poder ingresar al Portal de Solicitudes.
               </p>
             </div>
           </form>
 
         </div>
-        <p class="note text-center">*FREE Registration ends on October 2015.</p>
-        <h5 class="text-center">- Or sign in using -</h5>
+        <h5 class="text-center">- Visítanos en -</h5>
         <ul class="list-inline text-center">
           <li>
             <a (click)="(null)" class="btn btn-primary btn-circle"><i class="fa fa-facebook"></i></a>
@@ -162,7 +154,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
           &times;
         </button>
-        <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+        <h4 class="modal-title" id="myModalLabel">Términos y Condiciones</h4>
       </div>
       <div class="modal-body custom-scroll terms-body">
 
@@ -170,7 +162,7 @@
 
 
 
-          <h1>SMARTADMIN TERMS & CONDITIONS TEMPLATE</h1>
+          <h1>TÉRMINOS Y CONDICIONES DE MIEMPRESAENLÍNEA</h1>
 
 
 
