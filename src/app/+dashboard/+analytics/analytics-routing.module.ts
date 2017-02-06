@@ -5,7 +5,7 @@ import {AnalyticsComponent} from "./analytics.component";
 const routes: Routes = [{
   path: '',
   component: AnalyticsComponent,
-  data: {pageTitle: 'Analytics'}
+  data: {pageTitle: 'Estadísticas'}
 }];
 
 @NgModule({

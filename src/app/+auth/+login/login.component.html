@@ -4,7 +4,7 @@
     <span id="logo"> <img src="assets/img/logo.png" alt="MiEmpresaEnLínea"> </span>
   </div>
 
-  <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">¿No tienes usuario?</span> <a routerLink="/auth/register" class="btn btn-primary">Crea tu Usuario</a> </span>
+  <span id="extr-page-header-space"> <span class="hidden-mobile hiddex-xs">¿No tienes usuario?</span> <a routerLink="/register" class="btn btn-primary">Crea tu Usuario</a> </span>
 
 </header>
 <div id="main" role="main" class="animated fadeInDown">
@@ -19,7 +19,7 @@
             <h4 class="paragraph-header">Este sitio te permite crear y administrar tu empresa en línea.</h4>
 
             <div class="login-app-icons">
-              <a routerLink="/auth/register" class="btn btn-primary btn-sm">Crear mi Usuario</a>
+              <a routerLink="/register" class="btn btn-primary btn-sm">Crear mi Usuario</a>
               <a href="https://honduras.eregulations.org/" class="btn btn-primary btn-sm">Ir al sitio de EmprendeGuía</a>
             </div>
           </div>
@@ -46,7 +46,7 @@
         <div class="well no-padding">
           <form class="smart-form client-form">
             <header>
-              Conectarse al Portal de Solicitudes
+              Iniciar Sesión
             </header>
             <fieldset>
               <section>
@@ -54,22 +54,22 @@
                 <label class="input"> <i class="icon-append fa fa-user"></i>
                   <input type="email" name="email" data-smart-validate-input="" data-required="" data-email="" data-message-required="Por favor ingrese su correo electrónico." data-message-email="Por favor introduzca un formato de correo válido.">
                   <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>
-                    Ingrese su correo electrónico</b></label>
+                    Ingresa tu correo electrónico</b></label>
               </section>
               <section>
                 <label class="label">Contraseña</label>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
                   <input type="password" name="password" data-smart-validate-input="" data-required="" data-minlength="3" data-maxnlength="20" data-message="Please enter your email password">
-                  <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingrese su contraseña</b> </label>
+                  <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingresa tu contraseña</b> </label>
 
                 <div class="note">
-                  <a routerLink="/auth/forgot-password">Recuperar contraseña</a>
+                  <a routerLink="/forgot-password">Recuperar contraseña</a>
                 </div>
               </section>
             </fieldset>
             <footer>
               <button (click)="login($event)" class="btn btn-primary">
-                Conectarse
+                Iniciar Sesión
               </button>
             </footer>
           </form>

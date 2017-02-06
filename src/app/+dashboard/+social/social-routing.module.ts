@@ -5,7 +5,7 @@ import {SocialComponent} from "./social.component";
 const routes: Routes = [{
   path: '',
   component: SocialComponent,
-  data: {pageTitle: 'Social'}
+  data: {pageTitle: 'Mis Estadísticas'}
 }];
 
 @NgModule({

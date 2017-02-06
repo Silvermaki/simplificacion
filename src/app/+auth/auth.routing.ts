@@ -5,6 +5,10 @@ import {Routes, RouterModule} from "@angular/router";
 
 export const routes:Routes = [
   {
+    path: '',
+    redirectTo: 'login'
+  },
+  {
     path: 'login',
     loadChildren: ()=> System.import('./+login/login.module').then((m)=>m.LoginModule)
   },
@@ -15,10 +19,6 @@ export const routes:Routes = [
   {
     path: 'forgot-password',
     loadChildren: ()=> System.import('./+forgot/forgot.module').then((m)=>m.ForgotModule)
-  },
-  {
-    path: 'locked',
-    loadChildren: ()=> System.import('./+locked/locked.module').then((m)=>m.LockedModule)
   }
 ];
 

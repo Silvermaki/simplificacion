@@ -4,15 +4,15 @@ import {Routes, RouterModule} from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '', redirectTo: 'analytics', pathMatch: 'full'
+    path: '', redirectTo: 'estadisticas', pathMatch: 'full'
   },
   {
-    path: 'analytics',
+    path: 'estadisticas',
     loadChildren: ()=> System.import('./+analytics/analytics.module')
       .then((imports: any)=> imports.AnalyticsModule)
   },
   {
-    path: 'social',
+    path: 'personal',
     loadChildren: ()=> System.import('./+social/social.module')
       .then((imports: any)=> imports.SocialModule)
   }

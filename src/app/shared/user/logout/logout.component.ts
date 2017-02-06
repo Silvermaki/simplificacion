@@ -8,8 +8,8 @@ declare var $:any;
   selector: 'sa-logout',
   template: `
 <div id="logout" (click)="showPopup()" class="btn-header transparent pull-right">
-        <span> <a routerlink="/auth/login" title="Sign Out" data-action="userLogout"
-                  data-logout-msg="You can improve your security further after logging out by closing this opened browser"><i
+        <span> <a routerlink="/login" title="Desconectarse" data-action="userLogout"
+                  data-logout-msg="Asegúrate de haber enviado cualquier solicitud en proceso antes de desconectarte."><i
           class="fa fa-sign-out"></i></a> </span>
     </div>
   `,
@@ -22,19 +22,19 @@ export class LogoutComponent implements OnInit {
 
   showPopup(){
     this.notificationService.smartMessageBox({
-      title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
-      content : "You can improve your security further after logging out by closing this opened browser",
-      buttons : '[No][Yes]'
+      title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> ¿Desonectarse <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
+      content : "Asegúrate de haber enviado cualquier solicitud en proceso antes de desconectarte.",
+      buttons : '[ Desconectarse ][ Cancelar ]'
 
     }, (ButtonPressed) => {
-      if (ButtonPressed == "Yes") {
+      if (ButtonPressed == "Desconectarse") {
         this.logout()
       }
     });
   }
 
   logout(){
-      this.router.navigate(['/auth/login'])
+      this.router.navigate(['/login'])
   }
 
   ngOnInit() {

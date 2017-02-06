@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   register(event){
     event.preventDefault();
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/principal/dashboard/estadisticas'])
   }
 
 }

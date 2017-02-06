@@ -1,0 +1,1 @@
+{"version":3,"file":"app-layouts.component.js","sourceRoot":"","sources":["app-layouts.component.ts"],"names":[],"mappings":";AAAA,sCAAkD;AAClD,uFAAwE;AAOxE,IAAa,mBAAmB;IAE9B;IAAe,CAAC;IAEhB,sCAAQ,GAAR;IACA,CAAC;IAEH,0BAAC;AAAD,CAAC,AAPD,IAOC;AAPY,mBAAmB;IAL/B,iCAAS,EAAE;IACX,gBAAS,CAAC;QACT,QAAQ,EAAE,gBAAgB;QAC1B,WAAW,EAAE,8BAA8B;KAC5C,CAAC;;GACW,mBAAmB,CAO/B;AAPY,kDAAmB"}
