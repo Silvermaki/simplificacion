@@ -38,9 +38,17 @@
 	text-align: center;
 }
 
+.custom-success{
+  color: #55C33F;
+  text-align: center;
+}
 .custom-centered{
   text-align: center;
   margin-bottom: 40px;
+}
+
+.custom-top{
+  margin-top: 40px;
 }
 
 @font-face {

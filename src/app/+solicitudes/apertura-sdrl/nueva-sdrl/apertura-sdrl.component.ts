@@ -31,45 +31,46 @@ export class AperturaSdrlComponent implements OnInit, DoCheck {
   }
 
    public model = {
-    email: '',
-    firstname: '',
-    lastname: '',
-    country: '',
-    city: '',
-    postal: '',
-    wphone: '',
-    hphone: ''
+    razonSocial: '',
+    nombreComercial: '',
+    actividadPrimaria: '',
+    actividadSecundaria: '',
+    ciudad: '',
+    direccion: '',
+    duracionSociedad: '',
+    fechaInicio: '',
+    fechaFinal: ''
   };
 
-  public steps = [
+public steps = [
     {
       key: 'step1',
-      title: 'Basic information',
+      title: 'Datos Generales',
       valid: false,
       checked: false,
       submitted: false,
     },
     {
       key: 'step2',
-      title: 'Billing information',
+      title: 'Actividades y Duración',
       valid: false,
       checked: false,
       submitted: false,
     },
     {
       key: 'step3',
-      title: 'Domain Setup',
-      valid: true,
+      title: 'Socios y Capital',
+      valid: false,
       checked: false,
       submitted: false,
     },
     {
       key: 'step4',
-      title: 'Save Form',
-      valid: true,
+      title: 'Administración',
+      valid: false,
       checked: false,
       submitted: false,
-    },
+    }
   ];
 
   public activeStep = this.steps[0];

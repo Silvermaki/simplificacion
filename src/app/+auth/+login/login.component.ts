@@ -57,25 +57,21 @@ export class LoginComponent implements OnInit {
 		      err => console.log(err)
 		    );
 		}
-  	}
+  }
 
-  	checkData(){
-  		var result = this.load[0][0][''];
-  		if(result === 0){
-  			//console.log(result);
-  			this.error = "";
-  			this.saveLogin();
-
-  		}else{
-  			//console.log("wrong login");
-  			//console.log(result);
-  			this.error = "Correo o contraseña incorrectos";
-
-  		}
-  	}
+	checkData(){
+		var result = this.load[0][0]['mensaje'];
+    if(result == -1971){
+      this.error = "Usuario o Contraseña incorrectos";
+    }else{
+      this.error = "";
+      localStorage.setItem('currentUser', JSON.stringify({ token: result, name: this.login_detail.username }));
+      this.router.navigate(['/principal/dashboard']);
+    }
+	}
 
   	saveLogin(){
-  		this.router.navigate(['/principal/dashboard']);
+  		//
   	}
 
   	disableLogin(){      

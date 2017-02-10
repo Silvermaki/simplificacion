@@ -1,0 +1,75 @@
+<div id="content">
+  <div class="row">
+    <sa-big-breadcrumbs [items]="['Solicitudes', 'Nueva Solicitud']" icon="cube" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
+    <sa-stats></sa-stats>
+  </div>
+
+
+  <!-- widget grid -->
+  <div class="">
+    <sa-widgets-grid>
+
+      <!-- row -->
+      <div class="row">
+        <h3 class="custom-centered"><strong>Crear una Nueva Solicitud</strong></h3>
+        <form novalidate="novalidate">
+          <div class="col-sm-12">
+            <div class="form-bootstrapWizard clearfix">
+              <div class="form-group">
+                <div class="tab-content">
+
+                  <div class="form-group" [ngClass]="{
+                  'has-success':process.valid && data.process!='' ,
+                  'has-error':!process.valid && data.process!=''}">
+                  <div class="col-sm-6">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
+                      <select name="process" required class="form-control input-lg" [(ngModel)]="data.process" #process="ngModel">
+                        <option value="" selected="selected">Seleccione una Opción</option>
+                        <option value="1">Apertura de Sociedad de Responsabilidad Limitada</option>
+                        <option value="2">Apertura de Sociedad Anónima</option>
+                      </select>
+                    </div>
+                    <span [class.hidden]="process.valid || data.process==''" class="help-block">
+                      Por favor seleccione el tipo de solicitud
+                    </span>
+                  </div>
+                </div>
+
+                <div class="form-group" [ngClass]="{
+                'has-success':section.valid && data.section!='',
+                'has-error':!section.valid && data.section!=''}">
+                <div class="col-sm-6">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
+                    <select name="section" required class="form-control input-lg" [(ngModel)]="data.section" #section="ngModel">
+                      <option value="" selected="selected">Seleccione una Opción</option>
+                      <option value="1">Cámara de Comercio e Industria de Tegucigalpa</option>
+                      <option value="2">Cámara de Comercio e Industroa de Cortés</option>
+                    </select>
+                  </div>
+                  <span [class.hidden]="section.valid || data.section==''" class="help-block">
+                    Por favor seleccione la sección de la solicitud
+                  </span>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+  <!-- end row -->
+  <button (click)="submitForm()" [disabled]="data.section==''||data.process==''" class="btn btn-lg btn-primary custom-top center-block"><b><span class="fa fa-cogs fa-lg fa-fw"></span> Iniciar Solicitud</b></button>
+</sa-widgets-grid>
+</div>
+
+<!-- end widget grid -->
+
+
+</div>

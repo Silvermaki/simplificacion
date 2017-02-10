@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { AuthService } from '../auth.service'
+import { AuthService } from '../auth.service';
 import { User } from '../user.interface';
 
 @Component({
@@ -107,15 +107,33 @@ export class RegisterComponent implements OnInit {
   private load:any = {
   };
   
-  registerUser(){      
+  registerUser(event: Event){     
+    event.preventDefault();
     if(this.disableRegister() == false){
       this.AuthenticationService.registerUser(this.user).subscribe(
-          data => this.load = data,
+          data => {this.load = data, this.verifyError();},
           err => console.log(err)
       );
+      
     }
   }
 
+  private errorMessage: String = "";
+  private successMessage: String = "";
+
+  verifyError(){
+    console.log(this.load);
+    if(this.load[0][0]['']){
+      this.errorMessage = "";
+      this.successMessage = "Usuario registrado exitósamente";
+    }else if(this.load[0][0]["ErrorNumber"]==2627){
+      this.errorMessage = "El usuario o el correo proporcionado ya se encuentran en uso";
+      this.successMessage = "";
+    }else{
+      this.errorMessage = "Error en el servidor";
+      this.successMessage = "";
+    }
+  }
 
   disableRegister(){      
     if(this.user.username.length < 4 || this.user.username.length > 20){

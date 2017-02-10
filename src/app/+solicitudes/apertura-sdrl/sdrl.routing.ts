@@ -1,5 +1,5 @@
 
-import {ModuleWithProviders} from "@angular/core"
+import {ModuleWithProviders} from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
 import {SdrlComponent} from "./sdrl.component";
 
