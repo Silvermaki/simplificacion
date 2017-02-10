@@ -17,7 +17,6 @@
       <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
         <h1 class="login-header-big"><span class="custom-green">MiEmpresa</span><span class ="custom-blue">EnLínea</span></h1>
         <div class="hero">
-
           <div class="pull-left login-desc-box-l">
             <h4 class="paragraph-header">Este sitio te permite crear y administrar tu empresa en línea.</h4>
             <div class="login-app-icons">
@@ -51,7 +50,7 @@
       <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
         <div class="well no-padding">
 
-          <form id="smart-form-register" class="smart-form client-form">
+          <form #registerForm id="smart-form-register" class="smart-form client-form" [saUiValidate]="register_validations" novalidate="novalidate" (ngSubmit)="registerUser()">
             <header>
               Regístrate en MiEmpresaEnLínea
             </header>
@@ -59,25 +58,25 @@
             <fieldset>
               <section>
                 <label class="input"> <i class="icon-append fa fa-user"></i>
-                  <input type="text" name="username" placeholder="Usuario">
+                  <input type="text" name="username" placeholder="Usuario" [(ngModel)]="user.username" required>
                   <b class="tooltip tooltip-bottom-right">Utilizado como tu nombre dentro del portal de solicitudes</b> </label>
               </section>
 
               <section>
                 <label class="input"> <i class="icon-append fa fa-envelope"></i>
-                  <input type="email" name="email" placeholder="Correo Electrónico">
+                  <input type="email" name="email" placeholder="Correo Electrónico" [(ngModel)]="user.email" required>
                   <b class="tooltip tooltip-bottom-right">Utilizado para conectarte y gestionar tu cuenta de usuario</b> </label>
               </section>
 
               <section>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <input type="password" name="password" placeholder="Contraseña" id="password">
-                  <b class="tooltip tooltip-bottom-right">Tu contraseña debe contener al menos 8 caracteres</b> </label>
+                  <input type="password" name="password" placeholder="Contraseña" id="password" [(ngModel)]="user.password" required>
+                  <b class="tooltip tooltip-bottom-right">Recuerda proporcionar una contraseña segura</b> </label>
               </section>
 
               <section>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <input type="password" name="passwordConfirm" placeholder="Confirmar Contraseña">
+                  <input type="password" name="passwordConfirm" placeholder="Confirmar Contraseña" required [(ngModel)]="pwConfirm">
                   <b class="tooltip tooltip-bottom-right">Volver a ingresar tu contraseña</b> </label>
               </section>
             </fieldset>
@@ -86,12 +85,12 @@
               <div class="row">
                 <section class="col col-6">
                   <label class="input">
-                    <input type="text" name="nombre" placeholder="Nombre">
+                    <input type="text" name="firstNames" placeholder="Nombre" [(ngModel)]="user.first_name" required>
                   </label>
                 </section>
                 <section class="col col-6">
                   <label class="input">
-                    <input type="text" name="apellido" placeholder="Apellido">
+                    <input type="text" name="lastNames" placeholder="Apellido" [(ngModel)]="user.last_name" required>
                   </label>
                 </section>
               </div>
@@ -99,32 +98,26 @@
               <div class="row">
                 <section class="col col-6">
                   <label class="select">
-                    <select name="gender">
+                    <select name="gender" [(ngModel)]="user.gender" required>
                       <option value="0" selected disabled>Género</option>
-                      <option value="1">Masculino</option>
-                      <option value="2">Femenino</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Femenino">Femenino</option>
                     </select> </label>
                 </section>
               </div>
 
               <section>
                 <label class="checkbox">
-                  <input type="checkbox" name="terms" id="terms">
+                  <input type="checkbox" name="terms" id="terms" [(ngModel)]="agreeTerms">
                   <i></i>Acepto los <a href="#" data-toggle="modal" data-target="#myModal">Términos y Condiciones</a> de MiEmpresaEnLínea.</label>
               </section>
             </fieldset>
             <footer>
-              <button (click)="register($event)" class="btn btn-primary">
+            <!--{{load | json}}-->
+              <button type="submit"  class="btn btn-primary" [disabled] = "!agreeTerms">
                 Registrarse
               </button>
             </footer>
-
-            <div class="message">
-              <i class="fa fa-check"></i>
-              <p>
-                Gracias por registrarte en MiEmpresaEnLínea. Ingresa a tu bandeja de entrada para verificar el correo electrónico proporcionado antes de poder ingresar al Portal de Solicitudes.
-              </p>
-            </div>
           </form>
 
         </div>

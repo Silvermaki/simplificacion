@@ -44,7 +44,7 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
         <div class="well no-padding">
-          <form class="smart-form client-form">
+          <form #loginForm class="smart-form client-form" novalidate="novalidate" [saUiValidate]="login_validations" (ngSubmit)="login()">
             <header>
               Iniciar Sesión
             </header>
@@ -52,23 +52,27 @@
               <section>
                 <label class="label">Correo Electrónico</label>
                 <label class="input"> <i class="icon-append fa fa-user"></i>
-                  <input type="email" name="email" data-smart-validate-input="" data-required="" data-email="" data-message-required="Por favor ingrese su correo electrónico." data-message-email="Por favor introduzca un formato de correo válido.">
+                  <input type="email" name="email" data-smart-validate-input="" data-required="" data-email="" data-message-required="Por favor ingrese su correo electrónico." data-message-email="Por favor introduzca un formato de correo válido." [(ngModel)]="login_detail.username">
                   <b class="tooltip tooltip-top-right"><i class="fa fa-user txt-color-teal"></i>
                     Ingresa tu correo electrónico</b></label>
               </section>
               <section>
                 <label class="label">Contraseña</label>
                 <label class="input"> <i class="icon-append fa fa-lock"></i>
-                  <input type="password" name="password" data-smart-validate-input="" data-required="" data-minlength="3" data-maxnlength="20" data-message="Please enter your email password">
+                  <input type="password" name="password" data-smart-validate-input="" data-required="" data-minlength="3" data-maxnlength="20" data-message="Por favor ingrese su contraseña" [(ngModel)]="login_detail.password">
                   <b class="tooltip tooltip-top-right"><i class="fa fa-lock txt-color-teal"></i> Ingresa tu contraseña</b> </label>
 
                 <div class="note">
                   <a routerLink="/forgot-password">Recuperar contraseña</a>
                 </div>
+                <div class="custom-error">
+                  <br>
+                  <p>{{error}}</p>
+                </div>
               </section>
             </fieldset>
             <footer>
-              <button (click)="login($event)" class="btn btn-primary">
+              <button class="btn btn-primary">
                 Iniciar Sesión
               </button>
             </footer>

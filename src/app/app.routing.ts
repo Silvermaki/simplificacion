@@ -1,7 +1,3 @@
-/**
- * Created by griga on 7/11/16.
- */
-
 
 import {Routes, RouterModule} from '@angular/router';
 import {MainLayoutComponent} from "./shared/layout/app-layouts/main-layout.component";
@@ -33,6 +29,11 @@ export const routes: Routes = [
         path: 'correo',
         loadChildren: 'app/+outlook/outlook.module#OutlookModule',
         data: {pageTitle: 'Correo'}
+      },
+      {
+        path: 'solicitudes',
+        loadChildren: 'app/+solicitudes/solicitudes.module#SolicitudesModule',
+        data: {pageTitle: 'Solicitudes'}
       }
     ]
   },

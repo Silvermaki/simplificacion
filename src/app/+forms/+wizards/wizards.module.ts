@@ -5,7 +5,6 @@ import {WizardsComponent} from "./wizards.component";
 import {SmartadminModule} from "../../shared/smartadmin.module";
 import {SmartadminWizardsModule} from "../../shared/forms/wizards/smartadmin-wizards.module";
 import {BasicWizardWidgetComponent} from "./basic-wizard-widget/basic-wizard-widget.component";
-import {FuelUxWizardWidgetComponent} from "./fuel-ux-wizard-widget/fuel-ux-wizard-widget.component";
 
 @NgModule({
   imports: [
@@ -14,6 +13,6 @@ import {FuelUxWizardWidgetComponent} from "./fuel-ux-wizard-widget/fuel-ux-wizar
     SmartadminModule,
     SmartadminWizardsModule
   ],
-  declarations: [WizardsComponent, BasicWizardWidgetComponent, FuelUxWizardWidgetComponent]
+  declarations: [WizardsComponent, BasicWizardWidgetComponent]
 })
 export class WizardsModule { }

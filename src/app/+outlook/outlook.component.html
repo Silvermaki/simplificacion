@@ -1,27 +1,16 @@
 <div id="content" class="sa-outlook-content">
-  <div class="inbox-nav-bar no-content-padding">
 
-    <h1 class="page-title txt-color-blueDark hidden-tablet"><i class="fa fa-fw fa-inbox"></i> Mensajería</h1>
-
+  <div class="row">
+    <sa-big-breadcrumbs [items]="['Mensajería', 'Bandeja de Entrada']" icon="cube" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
+    <sa-stats></sa-stats>
   </div>
 
-  <div id="inbox-content" class="inbox-body no-content-padding">
-    <div class="inbox-side-bar">
 
-      <ul class="inbox-menu-lg">
-        <li>
-          <a routerLink="/principal/correo/inbox">Bandeja de Entrada</a>
-        </li>
-      </ul>
-
-    </div>
+    
     <router-outlet></router-outlet>
 
-    <div class="inbox-footer">
 
-    </div>
 
-  </div>
 
 
 </div>
