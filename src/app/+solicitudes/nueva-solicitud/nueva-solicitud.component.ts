@@ -15,6 +15,7 @@ export class NuevaSolicitudComponent implements OnInit {
       section: ""
     };
     this.loadProcesses();
+    this.loadSections();
   }
 
   ngOnInit() {
@@ -23,10 +24,13 @@ export class NuevaSolicitudComponent implements OnInit {
 
   public data;
 
-
   private processes:any = [];
 
   private sections:any = [];
+
+
+
+  private currentSections:any = [];
 
   private currentUser = JSON.parse(sessionStorage.getItem('user'));
 
@@ -38,16 +42,25 @@ export class NuevaSolicitudComponent implements OnInit {
   }
 
   loadSections(){
-    if(this.data.process != ""){
-      var payload = {hash:this.currentUser.hash, id:this.data.process.id_process};
-      this.data.section = "";
-      this.SolicitudesService.getSections(payload).subscribe(
+    this.SolicitudesService.getSections(this.currentUser).subscribe(
         data =>{this.sections = data[0]},
         err => console.log(err)
-      );
+    );
+  }
+
+  processChanged(){
+    if(this.data.process != ""){
+      this.data.section = "";
+      this.currentSections = [];
+      var i;
+      for (i = 0;i<this.sections.length; i = i+1) {
+        if(this.sections[i].id_process === this.data.process.id_process){
+           this.currentSections.push(this.sections[i]);
+        }
+      }
     }else{
-      this.data.section="";
-      this.sections = [];
+      this.data.section = "";
+      this.currentSections = [];
     }
   }
 

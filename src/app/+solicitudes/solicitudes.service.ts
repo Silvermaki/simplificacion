@@ -16,6 +16,7 @@ export class SolicitudesService {
 
   	private baseUrl: string = "http://localhost:8000";
 
+
     getProcesses(load: any):Observable<any>{
 		let bodyString = JSON.stringify(load);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
