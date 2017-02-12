@@ -65,14 +65,11 @@ export class LoginComponent implements OnInit {
       this.error = "Usuario o Contraseña incorrectos";
     }else{
       this.error = "";
-      localStorage.setItem('currentUser', JSON.stringify({ token: result, name: this.login_detail.username }));
+      sessionStorage.setItem("user", JSON.stringify({hash:result}));
       this.router.navigate(['/principal/dashboard']);
     }
 	}
 
-  	saveLogin(){
-  		//
-  	}
 
   	disableLogin(){      
     if(this.login_detail.username.length < 1 || !(this.login_detail.username.indexOf("@")>=0)||this.login_detail.username.indexOf("@")===this.login_detail.username.length-1){

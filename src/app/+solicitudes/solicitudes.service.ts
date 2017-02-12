@@ -14,7 +14,7 @@ export class SolicitudesService {
 
 	constructor(private http: Http) {}
 
-  	private baseUrl: string = "http://Makoto:8000";
+  	private baseUrl: string = "http://localhost:8000";
 
     getProcesses(load: any):Observable<any>{
 		let bodyString = JSON.stringify(load);
@@ -33,6 +33,7 @@ export class SolicitudesService {
 	getTasks(load: any):Observable<any>{
 		let bodyString = JSON.stringify(load);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
+		
 		let options = new RequestOptions({ headers: headers });
         return this.http.post(this.baseUrl+"/tasks",bodyString, options).map(this.extractData).catch(this.handleError);
 	}

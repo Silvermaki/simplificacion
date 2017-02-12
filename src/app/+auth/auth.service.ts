@@ -16,7 +16,7 @@ export class AuthService {
 
 	constructor(private http: Http) {}
 
-  	private baseUrl: string = "http://Makoto:8000";
+  	private baseUrl: string = "http://localhost:8000";
 
 	registerUser(user: User):Observable<any>{
 		let bodyString = JSON.stringify(user);

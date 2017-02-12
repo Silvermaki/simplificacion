@@ -22,12 +22,13 @@
                   'has-success':process.valid && data.process!='' ,
                   'has-error':!process.valid && data.process!=''}">
                   <div class="col-sm-6">
+                  <label><h4>Tipo de Solicitud</h4></label>
                     <div class="input-group">
+
                       <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
-                      <select name="process" required class="form-control input-lg" [(ngModel)]="data.process" #process="ngModel">
+                      <select name="process" required class="form-control input-lg" [(ngModel)]="data.process" #process="ngModel" (change)="loadSections()">
                         <option value="" selected="selected">Seleccione una Opción</option>
-                        <option value="1">Apertura de Sociedad de Responsabilidad Limitada</option>
-                        <option value="2">Apertura de Sociedad Anónima</option>
+                        <option *ngFor = "let proc of processes" [ngValue]="proc">{{proc.name}}</option>
                       </select>
                     </div>
                     <span [class.hidden]="process.valid || data.process==''" class="help-block">
@@ -40,12 +41,12 @@
                 'has-success':section.valid && data.section!='',
                 'has-error':!section.valid && data.section!=''}">
                 <div class="col-sm-6">
+                <label><h4>Departamento</h4></label>
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-flag fa-lg fa-fw"></i></span>
-                    <select name="section" required class="form-control input-lg" [(ngModel)]="data.section" #section="ngModel">
+                    <select name="section" required class="form-control input-lg" [(ngModel)]="data.section" #section="ngModel" >
                       <option value="" selected="selected">Seleccione una Opción</option>
-                      <option value="1">Cámara de Comercio e Industria de Tegucigalpa</option>
-                      <option value="2">Cámara de Comercio e Industroa de Cortés</option>
+                      <option *ngFor = "let section of sections" [ngValue]="section">{{section.name}}</option>
                     </select>
                   </div>
                   <span [class.hidden]="section.valid || data.section==''" class="help-block">

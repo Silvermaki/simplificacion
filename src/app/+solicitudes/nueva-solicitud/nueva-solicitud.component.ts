@@ -10,43 +10,52 @@ export class NuevaSolicitudComponent implements OnInit {
 
   constructor(private router: Router ,
     private SolicitudesService : SolicitudesService) {
-    
+    this.data = {
+      process: "",
+      section: ""
+    };
+    this.loadProcesses();
   }
 
   ngOnInit() {
 
   }
 
-  public var: String = "";
+  public data;
 
-  public data = {
-    process: '',
-    section: ''
-  };
 
   private processes:any = [];
 
-  private sections:any = {
-  };
+  private sections:any = [];
 
-  private user = {hash:'', email:''};
+  private currentUser = JSON.parse(sessionStorage.getItem('user'));
 
   loadProcesses(){
-  }
-
-  saveProcesses(){
-
+    this.SolicitudesService.getProcesses(this.currentUser).subscribe(
+      data =>{this.processes = data[0]},
+      err => console.log(err)
+    );
   }
 
   loadSections(){
-
+    if(this.data.process != ""){
+      var payload = {hash:this.currentUser.hash, id:this.data.process.id_process};
+      this.data.section = "";
+      this.SolicitudesService.getSections(payload).subscribe(
+        data =>{this.sections = data[0]},
+        err => console.log(err)
+      );
+    }else{
+      this.data.section="";
+      this.sections = [];
+    }
   }
 
   submitForm(){
-    if(this.data.process === "1"){
-      this.router.navigate(['/principal/solicitudes/sdrl']);
-    }else if(this.data.process==="2"){
-      this.router.navigate(['/principal/solicitudes/sa']);
-    }
+ 
+      //this.router.navigate(['/principal/solicitudes/sdrl']);
+   
+      //this.router.navigate(['/principal/solicitudes/sa']);
+    
   }
 }
