@@ -34,6 +34,11 @@ export const routes: Routes = [
         path: 'solicitudes',
         loadChildren: 'app/+solicitudes/solicitudes.module#SolicitudesModule',
         data: {pageTitle: 'Solicitudes'}
+      },
+      {
+        path: 'personas',
+        loadChildren: 'app/+personas/personas.module#PersonasModule',
+        data: {pageTitle: 'Personas'}
       }
     ]
   },
