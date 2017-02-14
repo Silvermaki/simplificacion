@@ -8,7 +8,7 @@ var navigation_component_1 = require("./navigation.component");
 var smart_menu_directive_1 = require("./smart-menu.directive");
 var user_module_1 = require("../../user/user.module");
 var router_1 = require("@angular/router");
-var chat_module_1 = require("../../chat/chat.module");
+// import {ChatModule} from "../../chat/chat.module";
 var NavigationModule = (function () {
     function NavigationModule() {
     }
@@ -21,7 +21,6 @@ NavigationModule = __decorate([
             router_1.RouterModule,
             i18n_module_1.I18nModule,
             user_module_1.UserModule,
-            chat_module_1.ChatModule
         ],
         declarations: [
             big_breadcrumbs_component_1.BigBreadcrumbsComponent,

@@ -16,19 +16,24 @@ export class PersonasService {
 
   	private baseUrl: string = "http://localhost:8000";
 
-
-    getPersonas(load: any):Observable<any>{
+   getCountries(load: any):Observable<any>{
+    let bodyString = JSON.stringify(load);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.baseUrl+"/countries",bodyString, options).map(this.extractData).catch(this.handleError);
+    }
+    getPersons(load: any):Observable<any>{
 		let bodyString = JSON.stringify(load);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.baseUrl+"/getpersonas",bodyString, options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.baseUrl+"/getpersons",bodyString, options).map(this.extractData).catch(this.handleError);
 	}
 
-	addPersonas(load: any):Observable<any>{
+	addPerson(load: any):Observable<any>{
 		let bodyString = JSON.stringify(load);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.baseUrl+"/addpersonas",bodyString, options).map(this.extractData).catch(this.handleError);
+        return this.http.post(this.baseUrl+"/addperson",bodyString, options).map(this.extractData).catch(this.handleError);
 	}
 
     private handleError(error:any) {

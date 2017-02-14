@@ -6,21 +6,47 @@
     <div class="">
       <sa-widgets-grid>
 
-        <div class="row">
           <h3 class="custom-centered"><strong>Ver Personas</strong></h3>
           <form novalidate="novalidate">
             <div class="col-sm-12">
               <div class="form-bootstrapWizard clearfix">
                 <div class="form-group">
                   <div class="tab-content">
+                    <div class="row">
+                      <div class="table-responsive">
 
+                        <table class="table table-bordered">
+                          <thead>
+                          <tr>
+                            <th>Nombre Completo</th>
+                            <th>Nacionalidad</th>
+                            <th>Tipo Identificación</th>
+                            <th>Número Identificación</th>
+                            <th>Correo Electrónico</th>
+                            <th class = "custom-table-header">Modificar</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <template let-person ngFor [ngForOf]="persons">
+                          <tr>
+                            <td>{{person.name}} {{person.last_name}}</td>
+                            <td>{{person.citizenship}}</td>
+                            <td>{{person.identification_type}}</td>
+                            <td>{{person.identification_number}}</td>
+                            <td>{{person.email}}</td>
+                            <td><button class="btn btn-primary center-block"><span class="fa fa-cogs fa-lg fa-fw"></span></button></td>
+                          </tr>
+                          </template>
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </form>
-        </div>
-
 
       </sa-widgets-grid>
     </div>

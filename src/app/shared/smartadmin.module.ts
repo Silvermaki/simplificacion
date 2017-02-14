@@ -5,10 +5,12 @@ import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 
 
+
 import {
   ModalModule, ButtonsModule, TooltipModule, DropdownModule, ProgressbarModule, AlertModule, TabsModule,
   AccordionModule, CarouselModule
 } from 'ng2-bootstrap'
+
 
 import {PopoverModule} from "ng2-popover";
 
@@ -18,8 +20,8 @@ import {UserService} from './user'
 
 
 import {I18nModule} from "./i18n/i18n.module";
-import {UserModule} from "./user/user.module";
 import {VoiceControlModule} from "./voice-control/voice-control.module";
+import {UserModule} from "./user/user.module";
 
 import {SmartadminWidgetsModule} from "./widgets/smartadmin-widgets.module";
 
@@ -46,13 +48,13 @@ import {SmartProgressbarModule} from "./ui/smart-progressbar/smart-progressbar.m
 
     ModalModule,
     ButtonsModule,
-
-    AlertModule,
-    TabsModule,
     TooltipModule,
     DropdownModule,
     ProgressbarModule,
-
+    AlertModule,
+    TabsModule,
+    AccordionModule,
+    CarouselModule,
 
     PopoverModule,
 

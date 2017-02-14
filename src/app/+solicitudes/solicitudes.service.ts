@@ -33,8 +33,7 @@ export class SolicitudesService {
 
 	getTasks(load: any):Observable<any>{
 		let bodyString = JSON.stringify(load);
-		let headers = new Headers({ 'Content-Type': 'application/json' });
-		
+		let headers = new Headers({ 'Content-Type': 'application/json' });	
 		let options = new RequestOptions({ headers: headers });
         return this.http.post(this.baseUrl+"/tasks",bodyString, options).map(this.extractData).catch(this.handleError);
 	}

@@ -8,8 +8,8 @@ declare var $:any;
   selector: 'sa-logout',
   template: `
 <div id="logout" (click)="showPopup()" class="btn-header transparent pull-right">
-        <span> <a routerlink="/login" title="Desconectarse" data-action="userLogout"
-                  data-logout-msg="Asegúrate de haber enviado cualquier solicitud en proceso antes de desconectarte."><i
+        <span> <a routerlink="/login" title="Sign Out" data-action="userLogout"
+                  data-logout-msg="¿Desconectarse de MiEmpresaEnLínea?"><i
           class="fa fa-sign-out"></i></a> </span>
     </div>
   `,
@@ -22,9 +22,9 @@ export class LogoutComponent implements OnInit {
 
   showPopup(){
     this.notificationService.smartMessageBox({
-      title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> ¿Desonectarse <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
-      content : "Asegúrate de haber enviado cualquier solicitud en proceso antes de desconectarte.",
-      buttons : '[ Desconectarse ][ Cancelar ]'
+      title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> Desconectarse <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
+      content : "¿Desconectarse de MiEmpresaEnLínea?",
+      buttons : '[No][Desconectarse]'
 
     }, (ButtonPressed) => {
       if (ButtonPressed == "Desconectarse") {

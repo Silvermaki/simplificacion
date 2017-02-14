@@ -17,6 +17,13 @@
  * - BODY
  * - CUSTOM STYLES
  */
+ .custom-center{
+  text-align: center;
+ }
+ .custom-size{
+  width: 40%;
+ }
+
 
  .custom-blue{
  	color: #28B463;
@@ -36,6 +43,10 @@
 .custom-error{
 	color: #F74444;
 	text-align: center;
+}
+
+.custom-table-header{
+  text-align: center;
 }
 
 .custom-success{

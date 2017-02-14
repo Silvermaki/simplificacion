@@ -1,1 +1,0 @@
-{"version":3,"file":"sparklines.component.js","sourceRoot":"","sources":["sparklines.component.ts"],"names":[],"mappings":";AAAA,sCAAkD;AAClD,uFAAwE;AAOxE,IAAa,mBAAmB;IAE9B;IAAe,CAAC;IAEhB,sCAAQ,GAAR;IACA,CAAC;IAEH,0BAAC;AAAD,CAAC,AAPD,IAOC;AAPY,mBAAmB;IAL/B,iCAAS,EAAE;IACX,gBAAS,CAAC;QACT,QAAQ,EAAE,eAAe;QACzB,WAAW,EAAE,6BAA6B;KAC3C,CAAC;;GACW,mBAAmB,CAO/B;AAPY,kDAAmB"}

@@ -111,8 +111,9 @@ export class RegisterComponent implements OnInit {
     event.preventDefault();
     if(this.disableRegister() == false){
       this.AuthenticationService.registerUser(this.user).subscribe(
-          data => {this.load = data, this.verifyError();},
-          err => console.log(err)
+          data => this.load = data,
+          err => console.log(err),
+          ()=>this.verifyError()
       );
       
     }

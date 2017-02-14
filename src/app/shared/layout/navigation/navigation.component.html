@@ -1,71 +1,39 @@
-<aside id="left-panel">
-
-  <!-- User info -->
-  <sa-login-info></sa-login-info>
-  <!-- end user info -->
-
+<aside id="left-panel"> 
+<sa-login-info></sa-login-info>
   <nav>
-    <!-- NOTE: Notice the gaps after each icon usage <i></i>..
-    Please note that these links work a bit different than
-    traditional href="" links. See documentation for details.
-    -->
-
     <ul saSmartMenu>
-      <li>
-        <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home txt-color-blue"></i> <span
-          class="menu-item-parent">Inicio</span></a>
+      <li class="top-menu-invisible">
+        <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent"> Solicitudes</span></a>
         <ul>
           <li>
-            <a routerLink="/principal/dashboard/estadisticas"><i class="fa fa-bar-chart"></i>
-              Estadísticas de MiEmpresaEnLínea</a>
+            <a routerLink="/principal/solicitudes"><i class="fa fa-plus"></i> Nueva Solicitud</a>
           </li>
           <li>
-            <a routerLink="/principal/dashboard/personal"><i class="fa fa-pie-chart"></i>
-              Mis Estadísticas</a>
+            <a routerLink="/principal/dashboard/personal"><i class="fa fa-clock-o"></i> Información Sobre Solicitudes</a>
           </li>
         </ul>
       </li>
 
       <li class="top-menu-invisible">
-        <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent">Solicitudes</span></a>
+        <a href="#"><i class="fa fa-lg fa-fw fa-user txt-color-blue"></i> <span class="menu-item-parent"> Personas</span></a>
         <ul>
           <li>
-            <a routerLink="/principal/solicitudes"><i class="fa fa-plus"></i>
-              Nueva Solicitud</a>
+            <a routerLink="/principal/personas/agregar"><i class="fa fa-user-plus"></i> Agregar Personas</a>
           </li>
           <li>
-            <a routerLink="/principal/dashboard/personal"><i class="fa fa-clock-o"></i>
-              Información Sobre Solicitudes</a>
+            <a routerLink="/principal/personas/ver"><i class="fa fa-search"></i> Ver Personas</a>
           </li>
         </ul>
       </li>
-
       <li class="top-menu-invisible">
-        <a href="#"><i class="fa fa-lg fa-fw fa-user txt-color-blue"></i> <span class="menu-item-parent">Personas</span></a>
+        <a href="#"><i class="fa fa-lg fa-fw fa-comment-o txt-color-blue"></i> <span class="menu-item-parent"> Mensajería</span></a>
         <ul>
           <li>
-            <a routerLink="/principal/personas/agregar"><i class="fa fa-user-plus"></i>
-              Agregar Personas</a>
-          </li>
-          <li>
-            <a routerLink="/principal/personas/ver"><i class="fa fa-search"></i>
-              Ver Personas</a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="top-menu-invisible">
-        <a href="#"><i class="fa fa-lg fa-fw fa-comment-o txt-color-blue"></i> <span class="menu-item-parent">Mensajería</span></a>
-        <ul>
-          <li>
-            <a routerLink="/principal/correo/inbox"><i class="fa fa-inbox"></i>
-              Bandeja de Entrada</a>
+            <a routerLink="/principal/correo/inbox"><i class="fa fa-inbox"></i> Bandeja de Entrada</a>
           </li>
         </ul>
       </li>
     </ul>
   </nav>
-
   <sa-minify-menu></sa-minify-menu>
-
 </aside>

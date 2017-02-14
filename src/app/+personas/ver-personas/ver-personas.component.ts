@@ -28,13 +28,21 @@ export class VerPersonasComponent implements OnInit {
 
   constructor(private router: Router ,
     private PersonasService : PersonasService) {
-
+    this.persons = [];
+    this.currentUser = JSON.parse(sessionStorage.getItem('user'));
+    this.loadPersons();
   }
 
+  private persons: any;
+  private currentUser:any;
   ngOnInit() {
 
   }
-  submitForm(){
-    
+  loadPersons(){
+    this.PersonasService.getPersons(this.currentUser).subscribe(
+      data =>{this.persons = data[0]},
+      err => console.log(err)
+      );
   }
+
 }

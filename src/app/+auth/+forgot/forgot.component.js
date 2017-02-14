@@ -9,7 +9,7 @@ var ForgotComponent = (function () {
     };
     ForgotComponent.prototype.submit = function (event) {
         event.preventDefault();
-        this.router.navigate(['/main/dashboard/analytics']);
+        this.router.navigate(['/principal/dashboard/estadisticas']);
     };
     return ForgotComponent;
 }());

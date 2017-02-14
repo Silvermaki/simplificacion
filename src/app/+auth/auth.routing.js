@@ -16,10 +16,6 @@ exports.routes = [
     {
         path: 'forgot-password',
         loadChildren: function () { return System.import('./+forgot/forgot.module').then(function (m) { return m.ForgotModule; }); }
-    },
-    {
-        path: 'locked',
-        loadChildren: function () { return System.import('./+locked/locked.module').then(function (m) { return m.LockedModule; }); }
     }
 ];
 exports.routing = router_1.RouterModule.forChild(exports.routes);

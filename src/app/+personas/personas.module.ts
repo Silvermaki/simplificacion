@@ -6,6 +6,7 @@ import {AgregarPersonasComponent} from './agregar-personas/agregar-personas.comp
 import {PersonasService} from './personas.service';
 import {SmartadminModule} from "../shared/smartadmin.module";
 import {SmartadminWizardsModule} from "../shared/forms/wizards/smartadmin-wizards.module";
+import {SmartadminFormsModule} from "../shared/forms/smartadmin-forms.module";
 
 @NgModule({
   declarations: [AgregarPersonasComponent, VerPersonasComponent], 

@@ -1,0 +1,65 @@
+
+  <!-- widget options:
+  usage: <sa-widget [editbutton]="false">
+
+  [colorbutton]="false"
+  [editbutton]="false"
+  [togglebutton]="false"
+  [deletebutton]="false"
+  [fullscreenbutton]="false"
+  [custombutton]="false"
+  [collapsed]="true"
+  [sortable]="false"
+
+
+
+-->
+<h3 class="custom-centered"><strong>Apertura de una Sociedad de Responsabilidad Limitada</strong></h3>
+<form novalidate="novalidate">
+  <div class="col-sm-12">
+    <div class="custom-center">
+      <div class="form-bootstrapWizard clearfix">
+        <ul class="bootstrapWizard">
+          <li *ngFor="let pane of data.forms; let i = index" [class.active]="activeStep == pane">
+            <a (click)="setActiveStep(pane)"> <span class="step">
+              <span *ngIf="!pane.checked">{{i + 1}}</span><i class="fa fa-check" *ngIf="pane.checked"></i></span> <span class="title"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane" *ngFor = "let current of data.forms; let i=index" [class.active]="activeStep == current">
+        <br>
+        <h3><strong>Paso {{i + 1}} </strong> - {{current.name}}</h3>
+        <div class="row" *ngFor = "let field of current.fields">
+          <div class="col-sm-6">
+            <label><h4>{{field.label}}</h4></label>
+            <div class="form-group" [ngClass]="{'has-success':[field.name].valid && activeStep.submitted,'has-error':![field.name].valid && activeStep.submitted}">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa-lg fa-fw"></i></span>
+                <input class="form-control input-lg" placeholder="{{field.placeholder}}" type="text" name="{{field.name}}" #[field.name]="ngModel" required [(ngModel)]="model[field.name]">
+              </div>
+              <span class="help-block">
+
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="row">
+          <div class="col-sm-12"> 
+            <div class = "col-xs-6">
+              <button class="btn btn-lg btn-info btn-block" (click)="prevStep()" [class.hidden]="data.forms.indexOf(activeStep) == 0" > <span class="fa fa-lg fa-fw fa-arrow-left"></span> Anterior</button>
+            </div>
+            <div class = "col-xs-6">
+              <button class="btn btn-lg btn-info btn-block" (click)="nextStep()" [class.hidden]="data.forms.indexOf(activeStep) == data.forms.length-1"> Siguiente  <span class="fa fa-lg fa-fw fa-arrow-right"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<button (click)="print()">imprimir</button>

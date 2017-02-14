@@ -1,1 +1,0 @@
-{"version":3,"file":"calendar.routing.js","sourceRoot":"","sources":["calendar.routing.ts"],"names":[],"mappings":";AACA,0CAAqD;AACrD,2DAAuD;AAE1C,QAAA,MAAM,GAAW;IAE5B;QACE,IAAI,EAAE,EAAE;QACR,SAAS,EAAE,sCAAiB;QAC5B,IAAI,EAAE,EAAC,SAAS,EAAE,UAAU,EAAC;KAC9B;CAGF,CAAC;AAEW,QAAA,OAAO,GAAG,qBAAY,CAAC,QAAQ,CAAC,cAAM,CAAC,CAAC"}

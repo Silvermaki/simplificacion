@@ -1,1 +1,0 @@
-{"version":3,"file":"image-editor.reducer.js","sourceRoot":"","sources":["image-editor.reducer.ts"],"names":[],"mappings":";AAEA,+BAA8C;AAE9C,iFAA6E;;AAC7E,kBAAe,uBAAe,CAAC;IAC7B,QAAQ,EAAE,4BAAY;IACtB,YAAY,EAAE,4BAAY;IAC1B,kBAAkB,EAAE,4BAAY;IAChC,YAAY,EAAE,4BAAY;IAC1B,eAAe,EAAE,4BAAY;IAC7B,YAAY,EAAE,4BAAY;CAC3B,CAAC,CAAA"}

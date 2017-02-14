@@ -1,28 +1,212 @@
 <div id="content">
-    <div class="row">
-      <sa-big-breadcrumbs [items]="['Personas', 'Agregar Personas']" icon="user" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
-      <sa-stats></sa-stats>
+  <div class="row">
+    <sa-big-breadcrumbs [items]="['Personas', 'Agregar Personas']" icon="user" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
+    <sa-stats></sa-stats>
   </div>
-    <div class="">
-      <sa-widgets-grid>
-
-        <div class="row">
-          <h3 class="custom-centered"><strong>Agregar una Nueva Persona</strong></h3>
-          <form novalidate="novalidate">
-            <div class="col-sm-12">
-              <div class="form-bootstrapWizard clearfix">
-                <div class="form-group">
-                  <div class="tab-content">
-
+  <div class="">
+    <sa-widgets-grid>
+      <h3 class="custom-centered"><strong>Agregar una Nueva Persona</strong></h3>
+      <form novalidate="novalidate" data-toggle="validator">
+        <div class="col-sm-12">
+          <div class="form-bootstrapWizard clearfix">
+            <div class="form-group">
+              <div class="tab-content">
+                <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group" [ngClass]="{
+                  'has-success':nombrePersona.valid && submitted,
+                  'has-error':!nombrePersona.valid && submitted
+                }">
+                
+                  <label><h4>Nombre</h4></label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                    <input class="form-control input-lg" placeholder="Ingrese el Nombre" type="text"
+                    name="nombrePersona" #nombrePersona="ngModel"
+                    required maxLength="50" [(ngModel)]="persona.nombre" >
                   </div>
+                  <span [class.hidden]="nombrePersona.valid || !submitted" class="help-block">
+                    El nombre de la persona es requerido
+                  </span>
                 </div>
               </div>
+              <div class="col-sm-4">
+              <div class="form-group" [ngClass]="{
+              'has-success':apellidoPersona.valid && submitted,
+              'has-error':!apellidoPersona.valid && submitted
+            }">
+            
+            <label><h4>Apellido</h4></label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                <input class="form-control input-lg" placeholder="Ingrese el Apellido" type="text"
+                name="apellidoPersona" #apellidoPersona="ngModel"
+                required maxLength="50" [(ngModel)]="persona.apellido" >
+              </div>
+              <span [class.hidden]="apellidoPersona.valid || !submitted" class="help-block">
+                El apellido de la persona es requerido
+              </span>
             </div>
-          </form>
+          </div>
         </div>
 
-        <button (click)="submitForm()" class="btn btn-lg btn-primary custom-top center-block"><b><span class="fa fa-cogs fa-lg fa-fw"></span> Agregar Persona</b></button>
+        <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group" [ngClass]="{
+                  'has-success':estadoCivilPersona.valid && submitted,
+                  'has-error':!estadoCivilPersona.valid && submitted
+                }">
+                
+                  <label><h4>Estado Civil</h4></label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                    <select name="estadoCivil" required [(ngModel)]="persona.estadoCivil" #estadoCivilPersona="ngModel"
+                                class="form-control input-lg">
+                          <option value="" selected="selected">Seleccione el Estado Civil</option>
+                          <option value="Soltero">Soltero(a)</option>
+                          <option value="Casado">Casado(a)</option>
+                          <option value="Unión Libre">Unión Libre</option>
+                          </select>
 
-      </sa-widgets-grid>
+                  </div>
+                  <span [class.hidden]="estadoCivilPersona.valid || !submitted" class="help-block">
+                    El estado civil de la persona es requerido
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+              <div class="form-group" [ngClass]="{
+              'has-success':profesionPersona.valid && submitted,
+              'has-error':!profesionPersona.valid && submitted
+            }">
+            
+            <label><h4>Profesión u Oficio</h4></label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                <input class="form-control input-lg" placeholder="Ingrese la Profesión u Oficio" type="text"
+                name="profesionPersona" #profesionPersona="ngModel"
+                required maxLength="50" [(ngModel)]="persona.profesion" >
+              </div>
+              <span [class.hidden]="profesionPersona.valid || !submitted" class="help-block">
+                La profesión u oficio es requerida
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+              <div class="form-group" [ngClass]="{
+              'has-success':correoPersona.valid && submitted,
+              'has-error':!correoPersona.valid && submitted
+            }">
+            
+            <label><h4>Correo Electrónico</h4></label>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                <input class="form-control input-lg" placeholder="Ejemplo: micorreo@dominio.com" type="email" 
+                name="correoPersona" #correoPersona="ngModel"
+                required maxLength="50" [(ngModel)]="persona.correo" >
+              </div>
+              <span [class.hidden]="correoPersona.valid || !submitted" class="help-block">
+                El correo electrónico es requerido y debe de tener el formato correcto
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group" [ngClass]="{
+                  'has-success':nacionalidadPersona.valid && submitted,
+                  'has-error':!nacionalidadPersona.valid && submitted
+                }">
+                
+                  <label><h4>Nacionalidad</h4></label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                    <select name="nacionalidad" required [(ngModel)]="persona.nacionalidad" #nacionalidadPersona="ngModel"
+                                class="form-control input-lg" (change) = "checkDocument()">
+                          <option value="" selected="selected">Seleccione la Nacionalidad</option>
+                          <option value="Honduras">Honduras</option>
+                          <option *ngFor = "let country of countries" [ngValue]="country.name">{{country.name}}</option>
+                          </select>
+
+                  </div>
+                  <span [class.hidden]="nacionalidadPersona.valid || !submitted" class="help-block">
+                    El estado civil de la persona es requerido
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                  <div class="form-group" [ngClass]="{
+                  'has-success':tipoIdentificacionPersona.valid && submitted,
+                  'has-error':!tipoIdentificacionPersona.valid && submitted
+                }">
+                
+                  <label><h4>Tipo de Identificación</h4></label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                    <select name="tipoIdentificacion" required [(ngModel)]="persona.tipoIdentificacion" #tipoIdentificacionPersona="ngModel"
+                                class="form-control input-lg">
+                          <option value="" selected="selected">Seleccione el Tipo de Identificación</option>
+                          <option *ngFor = "let doc of documents" [ngValue]="doc">{{doc}}</option>
+                          </select>
+
+                  </div>
+                  <span [class.hidden]="tipoIdentificacionPersona.valid || !submitted" class="help-block">
+                    El tipo de identificación es requerido
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-4">
+              <div class="form-group" [ngClass]="{
+              'has-success':numeroIdentificacionPersona.valid && submitted,
+              'has-error':!numeroIdentificacionPersona.valid && submitted
+            }">
+            
+            <label><h4>Número de Identificación</h4></label>
+            
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                <input class="form-control input-lg" saMaskedInput="9999-9999-99999" saMaskedPlaceholder="X" type="text" placeholder="XXXX-XXXX-XXXXX"
+                name="numeroIdentificacionPersona" #numeroIdentificacionPersona="ngModel"
+                required maxLength="15" [(ngModel)]="persona.numeroIdentificacion" >
+              </div>
+              <span [class.hidden]="numeroIdentificacionPersona.valid || !submitted" class="help-block">
+                El número de identidad es requerido
+              </span>
+            </div>
+          </div>
+
+        </div>
+<div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group" [ngClass]="{
+                  'has-success':direccionPersona.valid && submitted,
+                  'has-error':!direccionPersona.valid && submitted
+                }">
+                
+                  <label><h4>Dirección Residencial</h4></label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-building fa-lg fa-fw"></i></span>
+                    <input class="form-control input-lg" placeholder="departamento, ciudad, colonia, # calle, # casa" type="text"
+                    name="direccionPersona" #direccionPersona="ngModel"
+                    required maxLength="50" [(ngModel)]="persona.direccion" >
+                  </div>
+                  <span [class.hidden]="direccionPersona.valid || !submitted" class="help-block">
+                    La dirección es requerida
+                  </span>
+                </div>
+              </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+</form>
+<h4 class = "custom-error">{{messageError}}</h4>
+<h4 class = "custom-success">{{messageSuccess}}</h4>
+<button (click)="submitForm()" class="btn btn-lg btn-primary custom-top center-block"><b><span class="fa fa-cogs fa-lg fa-fw"></span> Agregar Persona</b></button>
+
+</sa-widgets-grid>
+</div>
 </div>

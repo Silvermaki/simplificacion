@@ -53,8 +53,9 @@ export class LoginComponent implements OnInit {
 	login(){
 		if(this.disableLogin() == false){
 		    this.AuthenticationService.login(this.login_detail).subscribe(
-		      data => {this.load = data, this.checkData()},
-		      err => console.log(err)
+		      data => this.load = data,
+		      err => console.log(err),
+          ()=>this.checkData()
 		    );
 		}
   }
@@ -66,7 +67,7 @@ export class LoginComponent implements OnInit {
     }else{
       this.error = "";
       sessionStorage.setItem("user", JSON.stringify({hash:result}));
-      this.router.navigate(['/principal/dashboard']);
+      this.router.navigate(['/principal']);
     }
 	}
 
