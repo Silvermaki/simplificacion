@@ -123,7 +123,6 @@ export class RegisterComponent implements OnInit {
   private successMessage: String = "";
 
   verifyError(){
-    console.log(this.load);
     if(this.load[0][0]['']){
       this.errorMessage = "";
       this.successMessage = "Usuario registrado exitósamente";

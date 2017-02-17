@@ -1,0 +1,73 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+ .custom-center{
+  text-align: center;
+ }
+ .custom-size{
+  width: 40%;
+ }
+
+
+ .custom-blue{
+ 	color: #28B463;
+ }
+
+ .custom-margin{
+ 	margin-top:10px;
+ }
+ .custom-green{
+	color: #2E86C1;
+ }
+
+.custom-border{
+	border-bottom:1px solid #bfbfbf;
+}
+
+.custom-error{
+	color: #F74444;
+	text-align: center;
+}
+
+.custom-table-header{
+  text-align: center;
+}
+
+.custom-success{
+  color: #55C33F;
+  text-align: center;
+}
+.custom-centered{
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.custom-top{
+  margin-top: 40px;
+}
+
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('webfont.eot'); /* IE9 Compat Modes */
+  src: url('webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

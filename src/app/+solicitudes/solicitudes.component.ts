@@ -94,12 +94,12 @@ export class SolicitudesComponent implements OnInit {
     this.SolicitudesService.getFields(load).subscribe(
       data =>{this.fields = (data[0])},
       err => console.log(err),
-      ()=>{
-        this.setFormsFields()}
+      ()=>{this.setFormsFields();}
     );
   }
 
   setFormsFields(){
+
     var formFields = [];
     var values = [];
     this.model = [];
@@ -118,12 +118,14 @@ export class SolicitudesComponent implements OnInit {
       temp.valid= false,
       temp.checked= false,
       temp.submitted= false,
+      temp.key = "step"+i;
       values.push(temp);
       formFields = [];
 
     }
     this.setModel();
     this.data.forms = values;
+    
   }
 
   setTask(){
@@ -149,6 +151,24 @@ export class SolicitudesComponent implements OnInit {
     );
   }
 
+  loadCatalogues(index: number){
+    if(index < this.fields.length){
+      if(this.fields[index].tag === "select"){
+        var temp = {hash:this.currentUser.hash, name:this.fields[index].name};
+        var tempField = Object.assign({}, this.fields[index]);
+        this.SolicitudesService.getCatalogues(temp).subscribe(
+          data => tempField["listValues"] = data[0],
+          err => console.log(err),
+          ()=>{
+            console.log(tempField);
+            this.fields[index] = tempField;
+            this.loadCatalogues(index + 1);
+          }
+        );
+      }
+    }
+  }
+
   processChanged(){
     if(this.data.process != ""){
       this.data.section = "";
@@ -168,7 +188,7 @@ export class SolicitudesComponent implements OnInit {
 
   setModel(){
     var i;
-    for(i = 1;i<this.model.length;i++){
+    for(i = 0;i<this.model.length;i++){
       var value = this.model[i].name;
       this.modelFormat[value] = "";
     }

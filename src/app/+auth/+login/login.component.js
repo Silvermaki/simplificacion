@@ -38,13 +38,13 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function () {
         var _this = this;
         if (this.disableLogin() == false) {
-            this.AuthenticationService.login(this.login_detail).subscribe(function (data) { _this.load = data, _this.checkData(); }, function (err) { return console.log(err); });
+            this.AuthenticationService.login(this.login_detail).subscribe(function (data) { return _this.load = data; }, function (err) { return console.log(err); }, function () { return _this.checkData(); });
         }
     };
     LoginComponent.prototype.checkData = function () {
         var result = this.load[0][0]['mensaje'];
         if (result == -1971) {
-            this.error = "Usuario o Contraseña incorrectos";
+            this.error = "Correo o Contraseña incorrectos";
         }
         else {
             this.error = "";

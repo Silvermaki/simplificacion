@@ -17,6 +17,13 @@ export class SolicitudesService {
   	private baseUrl: string = "http://localhost:8000";
 
 
+  	getCatalogues(load: any):Observable<any>{
+		let bodyString = JSON.stringify(load);
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.baseUrl+"/getcatalogues",bodyString, options).map(this.extractData).catch(this.handleError);
+	}
+
     getProcesses(load: any):Observable<any>{
 		let bodyString = JSON.stringify(load);
 		let headers = new Headers({ 'Content-Type': 'application/json' });

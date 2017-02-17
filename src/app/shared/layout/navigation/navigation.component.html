@@ -2,18 +2,23 @@
 <sa-login-info></sa-login-info>
   <nav>
     <ul saSmartMenu>
-      <li class="top-menu-invisible">
-        <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent"> Solicitudes</span></a>
+    <li class="top-menu-invisible">
+        <a href="#"><i class="fa fa-lg fa-fw fa-cube txt-color-blue"></i> <span class="menu-item-parent"> Mis Solicitudes</span></a>
         <ul>
+          <li>
+            <a routerLink="/principal/mis_solicitudes/historial_solicitudes"><i class="fa fa-clock-o"></i> Historial Solicitudes</a>
+          </li>
           <li>
             <a routerLink="/principal/solicitudes"><i class="fa fa-plus"></i> Nueva Solicitud</a>
           </li>
           <li>
-            <a routerLink="/principal/dashboard/personal"><i class="fa fa-clock-o"></i> Información Sobre Solicitudes</a>
+            <a routerLink="/principal/mis_solicitudes/tareas_pendientes"><i class="fa fa-clock-o"></i> Tareas Pendientes</a>
+          </li>
+          <li>
+            <a routerLink="/principal/mis_solicitudes/historial_tareas"><i class="fa fa-clock-o"></i> Historial Tareas</a>
           </li>
         </ul>
       </li>
-
       <li class="top-menu-invisible">
         <a href="#"><i class="fa fa-lg fa-fw fa-user txt-color-blue"></i> <span class="menu-item-parent"> Personas</span></a>
         <ul>

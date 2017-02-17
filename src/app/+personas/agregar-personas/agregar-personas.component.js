@@ -69,7 +69,7 @@ var AgregarPersonasComponent = (function () {
     AgregarPersonasComponent.prototype.submitForm = function () {
         var _this = this;
         this.submitted = true;
-        this.PersonasService.addPerson(this.persona).subscribe(function (data) { _this.result = data[0][0]['mensaje'], _this.checkValues(); }, function (err) { return console.log(err); });
+        this.PersonasService.addPerson(this.persona).subscribe(function (data) { return _this.result = data[0][0]['mensaje']; }, function (err) { return console.log(err); }, function () { return _this.checkValues(); });
     };
     return AgregarPersonasComponent;
 }());

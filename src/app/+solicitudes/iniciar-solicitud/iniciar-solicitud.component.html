@@ -14,7 +14,7 @@
 
 
 -->
-<h3 class="custom-centered"><strong>Apertura de una Sociedad de Responsabilidad Limitada</strong></h3>
+<h3 class="custom-centered"><strong>{{data.process.name}} - {{data.section.description}}</strong></h3>
 <form novalidate="novalidate">
   <div class="col-sm-12">
     <div class="custom-center">
@@ -22,7 +22,9 @@
         <ul class="bootstrapWizard">
           <li *ngFor="let pane of data.forms; let i = index" [class.active]="activeStep == pane">
             <a (click)="setActiveStep(pane)"> <span class="step">
-              <span *ngIf="!pane.checked">{{i + 1}}</span><i class="fa fa-check" *ngIf="pane.checked"></i></span> <span class="title"></span>
+              <span *ngIf="!pane.checked">{{i + 1}}</span>
+              <i class="fa fa-check" *ngIf="pane.checked"></i>
+              </span> <span class="title"></span>
             </a>
           </li>
         </ul>
@@ -30,21 +32,42 @@
     </div>
     <div class="tab-content">
       <div class="tab-pane" *ngFor = "let current of data.forms; let i=index" [class.active]="activeStep == current">
+      <div class="row">
         <br>
         <h3><strong>Paso {{i + 1}} </strong> - {{current.name}}</h3>
-        <div class="row" *ngFor = "let field of current.fields">
-          <div class="col-sm-6">
-            <label><h4>{{field.label}}</h4></label>
-            <div class="form-group" [ngClass]="{'has-success':[field.name].valid && activeStep.submitted,'has-error':![field.name].valid && activeStep.submitted}">
-              <div class="input-group">
+        <div class="col-sm-6" *ngFor = "let field of current.fields">
+          
+          <label><h4>{{field.label}}</h4></label>
+            <div class="form-group">
+              <div class="input-group" [ngClass]="{'has-success':model[field.name] && activeStep.submitted,'has-error':!model[field.name] && activeStep.submitted}">
                 <span class="input-group-addon"><i class="fa fa-envelope fa-lg fa-fw"></i></span>
-                <input class="form-control input-lg" placeholder="{{field.placeholder}}" type="text" name="{{field.name}}" #[field.name]="ngModel" required [(ngModel)]="model[field.name]">
-              </div>
-              <span class="help-block">
 
+                <div *ngIf="[field.tag]=='input' && [field.input_equivalent]=='text'">
+                  <input class="form-control input-lg" placeholder="{{field.placeholder}}" type="text" name="{{field.name}}" [(ngModel)]="model[field.name]" maxLength = "{{field.max_length}}"  required>
+                </div>
+
+                <div *ngIf="[field.tag]=='input' && [field.input_equivalent]=='date'">
+                  <input class="form-control input-lg datepicker" placeholder="{{field.placeholder}}" type="date" name="{{field.name}}" [(ngModel)]="model[field.name]" required>
+                </div>
+
+                <div *ngIf="[field.tag]=='select'">
+                  <select class="form-control input-lg" name="{{field.name}}" required [(ngModel)]="model[field.name]">
+                    <option value="" selected="selected">Seleccione una Opción</option>
+                    <!--<option *ngFor = "let cat of " [ngValue]="cat">{{cat.value_item}}</option>-->
+                  </select>
+                </div>
+
+                <div *ngIf="[field.tag]=='input' && [field.input_equivalent]=='number'">
+                  <input class="form-control input-lg" placeholder="{{field.placeholder}}" type="number" name="{{field.name}}" [(ngModel)]="model[field.name]" min="{{field.min_length}}" max="{{field.max_length}}" required>
+                </div>
+
+              </div>
+              
+              <span class="help-block" [class.hidden]="model[field.name] || !activeStep.submitted">
+              {{field.error_message}}
               </span>
             </div>
-          </div>
+        </div>
         </div>
       </div>
       <div class="form-actions">
@@ -54,7 +77,7 @@
               <button class="btn btn-lg btn-info btn-block" (click)="prevStep()" [class.hidden]="data.forms.indexOf(activeStep) == 0" > <span class="fa fa-lg fa-fw fa-arrow-left"></span> Anterior</button>
             </div>
             <div class = "col-xs-6">
-              <button class="btn btn-lg btn-info btn-block" (click)="nextStep()" [class.hidden]="data.forms.indexOf(activeStep) == data.forms.length-1"> Siguiente  <span class="fa fa-lg fa-fw fa-arrow-right"></span></button>
+              <button class="btn btn-lg btn-info btn-block" (click)="nextStep()" [class.disabled]="verify()" [class.hidden]="data.forms.indexOf(activeStep) == data.forms.length-1"> Siguiente  <span class="fa fa-lg fa-fw fa-arrow-right"></span></button>
             </div>
           </div>
         </div>

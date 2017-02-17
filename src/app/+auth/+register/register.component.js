@@ -93,11 +93,10 @@ var RegisterComponent = (function () {
         var _this = this;
         event.preventDefault();
         if (this.disableRegister() == false) {
-            this.AuthenticationService.registerUser(this.user).subscribe(function (data) { _this.load = data, _this.verifyError(); }, function (err) { return console.log(err); });
+            this.AuthenticationService.registerUser(this.user).subscribe(function (data) { return _this.load = data; }, function (err) { return console.log(err); }, function () { return _this.verifyError(); });
         }
     };
     RegisterComponent.prototype.verifyError = function () {
-        console.log(this.load);
         if (this.load[0][0]['']) {
             this.errorMessage = "";
             this.successMessage = "Usuario registrado exitósamente";

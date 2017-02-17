@@ -17,7 +17,7 @@ export const routes: Routes = [
     data: {pageTitle: 'Principal'},
     children: [
       {
-        path: '', redirectTo: 'solicitudes', pathMatch: 'full'
+        path: '', redirectTo: 'mis_solicitudes', pathMatch: 'full'
       },
       {
         path: 'correo',
@@ -33,6 +33,11 @@ export const routes: Routes = [
         path: 'personas',
         loadChildren: 'app/+personas/personas.module#PersonasModule',
         data: {pageTitle: 'Personas'}
+      },
+      {
+        path: 'mis_solicitudes',
+        loadChildren: 'app/+mis-solicitudes/mis-solicitudes.module#MisSolicitudesModule',
+        data: {pageTitle: 'Mis Solicitudes'}
       }
     ]
   },

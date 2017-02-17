@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
 	checkData(){
 		var result = this.load[0][0]['mensaje'];
     if(result == -1971){
-      this.error = "Usuario o Contraseña incorrectos";
+      this.error = "Correo o Contraseña incorrectos";
     }else{
       this.error = "";
       sessionStorage.setItem("user", JSON.stringify({hash:result}));
