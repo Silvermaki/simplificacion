@@ -40,7 +40,8 @@ export const routes: Routes = [
         path: 'mis_solicitudes',
         loadChildren: 'app/+mis-solicitudes/mis-solicitudes.module#MisSolicitudesModule',
         data: {pageTitle: 'Mis Solicitudes'}
-      }
+      },
+      { path: '**', redirectTo: ''}
     ]
   },
 

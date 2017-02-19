@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {NotificationService} from "../../utils/notification.service";
-
+import {AuthService} from "../../../+auth/auth.service";
 declare var $:any;
 
 @Component({
@@ -18,7 +18,8 @@ declare var $:any;
 export class LogoutComponent implements OnInit {
 
   constructor(private router: Router,
-              private notificationService: NotificationService) { }
+              private notificationService: NotificationService,
+              private authService:AuthService) { }
 
   showPopup(){
     this.notificationService.smartMessageBox({
@@ -28,14 +29,19 @@ export class LogoutComponent implements OnInit {
 
     }, (ButtonPressed) => {
       if (ButtonPressed == "Desconectarse") {
-        this.logout()
+        this.logout();
       }
     });
   }
 
   logout(){
-      sessionStorage.setItem("user", JSON.stringify({hash:"", isLoggedIn:false}));
-      this.router.navigate(['/login'])
+      var load = {hash:JSON.parse(sessionStorage.getItem('user')).hash};
+      var result;
+      this.authService.logout(load).subscribe(
+          data => result = data[0][0]['mensaje'],
+          err => console.log(err),
+          ()=>{sessionStorage.setItem("user", JSON.stringify({hash:"", isLoggedIn:false})); this.router.navigate(['/login']);console.log(result);}
+        );
   }
 
   ngOnInit() {

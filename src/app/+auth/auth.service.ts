@@ -32,6 +32,13 @@ export class AuthService {
         return this.http.post(this.baseUrl+"/login",bodyString, options).map(this.extractData).catch(this.handleError);
 	}
 
+	logout(logout_details: any):Observable<any>{
+		let bodyString = JSON.stringify(logout_details);
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers });
+        return this.http.post(this.baseUrl+"/logout",bodyString, options).map(this.extractData).catch(this.handleError);
+	}
+
 	private extractData(res:Response) {
         let body = res.json();
 

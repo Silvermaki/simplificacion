@@ -62,7 +62,6 @@ export class LoginComponent implements OnInit {
 
 	checkData(){
 		var result = this.load[0][0]['mensaje'];
-    console.log(result);
     if(result == -1971){
       this.error = "Correo o Contraseña incorrectos";
     }else{
