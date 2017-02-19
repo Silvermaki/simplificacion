@@ -34,6 +34,7 @@ export class LogoutComponent implements OnInit {
   }
 
   logout(){
+      sessionStorage.setItem("user", JSON.stringify({hash:"", isLoggedIn:false}));
       this.router.navigate(['/login'])
   }
 

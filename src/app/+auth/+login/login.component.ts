@@ -62,24 +62,26 @@ export class LoginComponent implements OnInit {
 
 	checkData(){
 		var result = this.load[0][0]['mensaje'];
+    console.log(result);
     if(result == -1971){
       this.error = "Correo o Contraseña incorrectos";
     }else{
       this.error = "";
-      sessionStorage.setItem("user", JSON.stringify({hash:result}));
+      sessionStorage.setItem("user", JSON.stringify({hash:result, isLoggedIn:true}));
       this.router.navigate(['/principal']);
     }
 	}
 
 
-  	disableLogin(){      
-    if(this.login_detail.username.length < 1 || !(this.login_detail.username.indexOf("@")>=0)||this.login_detail.username.indexOf("@")===this.login_detail.username.length-1){
-      return true;
-    }
-    if(this.login_detail.password.length < 1){
-      return true;
-    }
-    return false;
+
+disableLogin(){      
+  if(this.login_detail.username.length < 1 || !(this.login_detail.username.indexOf("@")>=0)||this.login_detail.username.indexOf("@")===this.login_detail.username.length-1){
+    return true;
+  }
+  if(this.login_detail.password.length < 1){
+    return true;
+  }
+  return false;
   }
 
 }

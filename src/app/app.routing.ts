@@ -2,6 +2,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {MainLayoutComponent} from "./shared/layout/app-layouts/main-layout.component";
 import {AuthLayoutComponent} from "./shared/layout/app-layouts/auth-layout.component";
 import {ModuleWithProviders} from "@angular/core";
+import {LoginRouteGuard} from './login-route-guard';
 
 export const routes: Routes = [
     {
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {
     path: 'principal',
     component: MainLayoutComponent,
+    canActivate: [LoginRouteGuard],
     data: {pageTitle: 'Principal'},
     children: [
       {
